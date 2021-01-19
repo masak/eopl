@@ -1,0 +1,9 @@
+(def duple (n x)
+  (if (<= n 0)
+      nil
+      (cons x (duple (dec n) x))))
+
+(prn (duple 2 3))           ; (3 3)
+(prn (duple 4 '(ha ha)))    ; ((ha ha) (ha ha) (ha ha) (ha ha))
+(prn (duple 0 '(blah)))     ; nil
+

@@ -1,0 +1,14 @@
+(def swapper (s1 s2 slist)
+  (if (no slist)
+      nil
+      (let (h . r) slist
+        (if (= h s1) (cons s2 (swapper s1 s2 r))
+            (= h s2) (cons s1 (swapper s1 s2 r))
+            (pair h) (cons (swapper s1 s2 h)
+                           (swapper s1 s2 r))
+                     (cons h (swapper s1 s2 r))))))
+
+(prn (swapper 'a 'd '(a b c d)))        ; (d b c a)
+(prn (swapper 'a 'd '(a d () c d)))     ; (d a nil c a)
+(prn (swapper 'x 'y '((x) y (z (x)))))  ; ((y) x (z (y)))
+

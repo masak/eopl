@@ -1,0 +1,10 @@
+(def down (lst)
+  (if (no lst)
+      nil
+      (cons (list (car lst))
+            (down (cdr lst)))))
+
+(prn (down '(1 2 3)))               ; ((1) (2) (3))
+(prn (down '((a) (fine) (idea))))   ; (((a)) ((fine)) ((idea)))
+(prn (down '(a (more (complicated)) object)))
+    ;; ((a) ((more (complicated))) (object))
